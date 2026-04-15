@@ -338,10 +338,10 @@ export default function Landing() {
               <p className="text-sm text-gray-500 leading-relaxed">Regulated workforce OS for US commercial motor carriers.</p>
             </div>
             {[
-              { title: 'Company', links: ['About us', 'Our offerings', 'Newsroom', 'Investors', 'Blog', 'Careers'] },
-              { title: 'Products', links: ['Ride', 'Drive', 'Deliver', 'Uber for Business', 'Uber Freight'] },
-              { title: 'Global citizenship', links: ['Safety', 'Diversity and Inclusion', 'Sustainability'] },
-              { title: 'Travel', links: ['Reserve', 'Airports', 'Cities'] },
+              { title: 'Product', links: ['Screening', 'DQF Assembly', 'Matching', 'Compliance', 'Pricing'] },
+              { title: 'Solutions', links: ['For Carriers', 'For Drivers', 'For Enterprise', 'API'] },
+              { title: 'Compliance', links: ['FMCSA', 'FCRA', 'CCPA', 'NYC LL144', 'Audit Logs'] },
+              { title: 'Company', links: ['About', 'Blog', 'Careers', 'Press', 'Contact'] },
             ].map((col, i) => (
               <div key={i}>
                 <h4 className="font-bold text-sm mb-4">{col.title}</h4>
