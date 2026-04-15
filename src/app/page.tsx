@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Logo } from '@/components/shared/Logo';
 
 export default function Landing() {
   return (
@@ -9,11 +10,8 @@ export default function Landing() {
       <nav className="uber-nav">
         <div className="max-w-[1136px] mx-auto px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center">
-                <span className="text-black font-bold text-xs">IP</span>
-              </div>
-              <span className="font-bold text-lg tracking-tight">IndustryPlus</span>
+            <Link href="/">
+              <Logo size="md" />
             </Link>
             <div className="hidden md:flex items-center gap-1">
               <Link href="/driver" className="px-4 py-2 text-sm font-medium rounded-full hover:bg-gray-100 transition-colors">Drivers</Link>
@@ -234,12 +232,7 @@ export default function Landing() {
             </div>
             <div className="flex justify-center">
               <div className="w-[380px] rounded-2xl bg-black p-6 text-white">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
-                    <span className="text-black font-bold text-[10px]">IP</span>
-                  </div>
-                  <span className="font-bold text-sm">Compliance Score</span>
-                </div>
+                <p className="text-sm font-bold mb-4 text-gray-400 uppercase tracking-wider">Compliance Score</p>
                 <p className="text-5xl font-bold mb-1">99.2%</p>
                 <p className="text-sm text-gray-500 mb-4">FMCSA · FCRA · CCPA</p>
                 <div className="grid grid-cols-3 gap-3">
@@ -329,12 +322,7 @@ export default function Landing() {
         <div className="max-w-[1136px] mx-auto px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
-                  <span className="text-black font-bold text-[10px]">IP</span>
-                </div>
-                <span className="font-bold">IndustryPlus</span>
-              </div>
+              <Logo size="sm" light />
               <p className="text-sm text-gray-500 leading-relaxed">Regulated workforce OS for US commercial motor carriers.</p>
             </div>
             {[

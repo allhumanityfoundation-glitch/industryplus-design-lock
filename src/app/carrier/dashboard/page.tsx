@@ -1,5 +1,7 @@
 'use client';
 
+import { Logo } from '@/components/shared/Logo';
+
 const stats = [
   { label: 'Active Drivers', value: '47', change: '+3 this week' },
   { label: 'Pending', value: '12', change: '5 need action' },
@@ -29,11 +31,8 @@ export default function CarrierDashboard() {
     <div className="min-h-screen bg-[#FAFAFA] flex">
       {/* Sidebar */}
       <aside className="fixed left-0 top-0 bottom-0 w-60 bg-black flex flex-col z-50">
-        <div className="h-14 flex items-center gap-2 px-5 border-b border-white/10">
-          <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
-            <span className="text-black font-bold text-[10px]">IP</span>
-          </div>
-          <span className="text-white font-bold text-sm">IndustryPlus</span>
+        <div className="h-14 flex items-center px-5 border-b border-white/10">
+          <Logo size="sm" light />
         </div>
 
         <nav className="flex-1 py-4 px-3">

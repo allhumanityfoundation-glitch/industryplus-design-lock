@@ -1,16 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import { Logo } from '@/components/shared/Logo';
 
 export default function CarrierLogin() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <header className="bg-black h-14 flex items-center px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
-            <span className="text-black font-bold text-[10px]">IP</span>
-          </div>
-          <span className="text-white font-bold">IndustryPlus</span>
+        <Link href="/">
+          <Logo size="sm" light />
         </Link>
       </header>
 

@@ -1,5 +1,7 @@
 'use client';
 
+import { Logo } from '@/components/shared/Logo';
+
 const matches = [
   { company: 'Swift Transport', role: 'OTR Driver', pay: '$0.58/mi', status: 'Review' },
   { company: 'Knight Logistics', role: 'Regional CDL-A', pay: '$1,200/wk', status: 'Qualified' },
@@ -23,11 +25,7 @@ export default function DriverDashboard() {
       {/* Header */}
       <div className="bg-black text-white px-5 pt-5 pb-6">
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
-              <span className="text-black font-bold text-[10px]">IP</span>
-            </div>
-          </div>
+          <Logo size="sm" light />
           <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
             <span className="text-sm font-medium">MJ</span>
           </div>
