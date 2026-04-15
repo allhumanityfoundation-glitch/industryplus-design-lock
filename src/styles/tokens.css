@@ -1,0 +1,48 @@
+:root {
+  /* ── Core ── */
+  --ip-black: #0A0A0A;
+  --ip-white: #FAFAFA;
+  --ip-pure-white: #FFFFFF;
+
+  /* ── Accent gradient: yellow → orange ── */
+  --ip-yellow: #FACC15;
+  --ip-orange: #F97316;
+  --ip-gradient: linear-gradient(135deg, #FACC15 0%, #F97316 100%);
+  --ip-gradient-hover: linear-gradient(135deg, #FDE047 0%, #FB923C 100%);
+
+  /* ── Neutral scale (Vercel-inspired) ── */
+  --ip-gray-50: #FAFAFA;
+  --ip-gray-100: #F5F5F5;
+  --ip-gray-200: #E5E5E5;
+  --ip-gray-300: #D4D4D4;
+  --ip-gray-400: #A3A3A3;
+  --ip-gray-500: #737373;
+  --ip-gray-600: #525252;
+  --ip-gray-700: #404040;
+  --ip-gray-800: #262626;
+  --ip-gray-900: #171717;
+  --ip-gray-950: #0A0A0A;
+
+  /* ── Semantic ── */
+  --ip-success: #22C55E;
+  --ip-danger: #EF4444;
+  --ip-warning: #F59E0B;
+  --ip-info: #3B82F6;
+
+  /* ── Typography ── */
+  --ip-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ip-font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ── Shadow-as-border (Vercel technique) ── */
+  --ip-shadow-border: 0 0 0 1px rgba(0,0,0,0.06);
+  --ip-shadow-card: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.04), 0 8px 8px -8px rgba(0,0,0,0.04);
+  --ip-shadow-elevated: 0 0 0 1px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.08), 0 16px 16px -8px rgba(0,0,0,0.06);
+  --ip-shadow-dark: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 8px rgba(0,0,0,0.4);
+
+  /* ── Radius ── */
+  --ip-radius-sm: 6px;
+  --ip-radius-md: 10px;
+  --ip-radius-lg: 16px;
+  --ip-radius-xl: 24px;
+  --ip-radius-full: 9999px;
+}
