@@ -1,86 +1,95 @@
 'use client';
 
 const matches = [
-  { company: 'Swift Transport', role: 'OTR Driver', pay: '$0.58/mi', status: 'Review', active: false },
-  { company: 'Knight Logistics', role: 'Regional CDL-A', pay: '$1,200/wk', status: 'Qualified', active: true },
-  { company: 'Schneider National', role: 'Intermodal', pay: '$0.62/mi', status: 'New', active: false },
+  { company: 'Swift Transport', role: 'OTR Driver', pay: '$0.58/mi', status: 'Review' },
+  { company: 'Knight Logistics', role: 'Regional CDL-A', pay: '$1,200/wk', status: 'Qualified' },
+  { company: 'Schneider National', role: 'Intermodal', pay: '$0.62/mi', status: 'New' },
 ];
 
 const docs = [
-  { name: 'CDL — Class A', status: '✓ Verified', ok: true },
-  { name: 'Medical Certificate', status: 'Expires Jun 2026', ok: false },
-  { name: 'Drug Screen', status: '✓ Verified', ok: true },
-  { name: 'MVR Report', status: '✓ Verified', ok: true },
+  { name: 'CDL — Class A', ok: true },
+  { name: 'Medical Certificate', ok: false },
+  { name: 'Drug Screen', ok: true },
+  { name: 'MVR Report', ok: true },
+  { name: 'Road Test Certificate', ok: true },
+  { name: 'Employment Application', ok: true },
 ];
 
-const tabs = ['Home', 'Matches', 'Docs', 'Profile'];
+const tabs = ['Home', 'Activity', 'Documents', 'Account'];
 
 export default function DriverDashboard() {
   return (
-    <div className="min-h-screen bg-white max-w-md mx-auto pb-20">
-      <div className="gradient-bar w-full" />
-
+    <div className="min-h-screen bg-white max-w-md mx-auto pb-24">
       {/* Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center justify-between">
-        <div>
-          <p className="text-xs text-[--ip-muted] uppercase tracking-wider font-medium">Good morning</p>
-          <h1 className="text-xl font-bold tracking-tight">Marcus Johnson</h1>
+      <div className="bg-black text-white px-5 pt-5 pb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
+              <span className="text-black font-bold text-[10px]">IP</span>
+            </div>
+          </div>
+          <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+            <span className="text-sm font-medium">MJ</span>
+          </div>
         </div>
-        <div className="w-10 h-10 rounded-full bg-[--ip-chip-gray] flex items-center justify-center">
-          <span className="font-bold text-sm text-[--ip-body-gray]">MJ</span>
-        </div>
+        <p className="text-gray-400 text-sm">Good morning,</p>
+        <h1 className="text-2xl font-bold tracking-tight">Marcus Johnson</h1>
       </div>
 
-      {/* Status banner — gradient */}
-      <div className="px-5 mb-5">
-        <div className="gradient-bg rounded-2xl p-5">
+      {/* Status card */}
+      <div className="px-5 -mt-5 mb-5">
+        <div className="uber-card p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-black/50 text-[11px] uppercase tracking-wider font-bold mb-1">Status</p>
-              <p className="text-black font-bold text-xl">Fully Qualified</p>
-              <p className="text-black/50 text-sm">DQF complete · 3 matches</p>
+              <p className="text-[11px] text-gray-400 uppercase tracking-wider font-bold mb-1">Status</p>
+              <p className="font-bold text-lg">Fully Qualified</p>
+              <p className="text-sm text-gray-500">DQF 5/6 · 3 matches</p>
             </div>
-            <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center">
-              <svg className="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
+              <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
               </svg>
             </div>
+          </div>
+          {/* Progress bar */}
+          <div className="mt-4 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-full rounded-full" style={{width: '83%', background: 'var(--ip-gradient)'}} />
           </div>
         </div>
       </div>
 
       {/* Quick actions — Uber chip row */}
-      <div className="px-5 mb-5 flex gap-2 overflow-x-auto">
-        <button className="chip active">Upload Doc</button>
-        <button className="chip">My Consents</button>
+      <div className="px-5 mb-5 flex gap-2 overflow-x-auto pb-1">
+        <button className="chip active">Upload</button>
+        <button className="chip">Consents</button>
         <button className="chip">DSAR</button>
-        <button className="chip">Notifications</button>
+        <button className="chip">Help</button>
       </div>
 
-      {/* Matches section */}
+      {/* Matches */}
       <div className="px-5 mb-5">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-bold text-sm">Matches</h2>
-          <span className="text-xs text-[--ip-muted] font-medium">See all</span>
+          <h2 className="font-bold">Matches</h2>
+          <button className="text-sm text-gray-500 font-medium">See all</button>
         </div>
         <div className="space-y-3">
           {matches.map((m, i) => (
             <div key={i} className="uber-card p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[--ip-chip-gray] flex items-center justify-center flex-shrink-0">
-                    <span className="font-bold text-sm text-[--ip-body-gray]">{m.company[0]}</span>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-sm text-gray-500">{m.company[0]}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-sm truncate">{m.company}</p>
+                    <span className={`chip text-[11px] !py-0.5 !px-2.5 ml-2 flex-shrink-0 ${m.status === 'Qualified' ? 'active' : ''}`}>{m.status}</span>
                   </div>
-                  <div>
-                    <p className="font-bold text-sm">{m.company}</p>
-                    <p className="text-xs text-[--ip-body-gray]">{m.role}</p>
+                  <p className="text-xs text-gray-500">{m.role}</p>
+                  <div className="flex items-center justify-between mt-1.5">
+                    <span className="font-bold text-sm">{m.pay}</span>
+                    <span className="text-xs text-gray-400 font-medium">View →</span>
                   </div>
                 </div>
-                <span className={`chip text-xs !px-3 !py-1 ${m.active ? 'active' : ''}`}>{m.status}</span>
-              </div>
-              <div className="flex items-center justify-between pl-[52px]">
-                <span className="font-bold">{m.pay}</span>
-                <span className="text-xs text-[--ip-muted] font-medium">View →</span>
               </div>
             </div>
           ))}
@@ -90,14 +99,20 @@ export default function DriverDashboard() {
       {/* Documents */}
       <div className="px-5 mb-5">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-bold text-sm">Documents</h2>
-          <span className="text-xs text-[--ip-muted] font-medium">4/6 complete</span>
+          <h2 className="font-bold">Documents</h2>
+          <span className="text-sm text-gray-500 font-medium">5/6</span>
         </div>
         <div className="uber-card overflow-hidden">
           {docs.map((d, i) => (
-            <div key={i} className={`flex items-center justify-between px-4 py-3 ${i < docs.length - 1 ? 'border-b border-gray-100' : ''}`}>
+            <div key={i} className={`flex items-center justify-between px-4 py-3 ${i < docs.length - 1 ? 'border-b border-gray-50' : ''}`}>
               <span className="text-sm font-medium">{d.name}</span>
-              <span className={`text-xs font-medium ${d.ok ? 'text-green-600' : 'text-[--ip-orange]'}`}>{d.status}</span>
+              {d.ok ? (
+                <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              ) : (
+                <span className="text-[11px] font-bold text-amber-500 uppercase">Expiring</span>
+              )}
             </div>
           ))}
         </div>
@@ -114,18 +129,18 @@ export default function DriverDashboard() {
             </div>
             <div>
               <p className="font-bold text-sm">Medical Certificate expiring</p>
-              <p className="text-sm text-gray-400 mt-0.5">Expires in 45 days. Upload a renewal to stay qualified.</p>
-              <button className="pill-btn pill-btn-white text-xs mt-3 !py-2 !px-4">Upload now</button>
+              <p className="text-sm text-gray-400 mt-0.5">Expires in 45 days. Upload a renewal.</p>
+              <button className="btn-accent text-xs mt-3 !py-2 !px-4">Upload now</button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom tab bar — Uber pill style */}
+      {/* Uber-style floating pill bottom nav */}
       <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md px-5 pb-3 safe-bottom z-50">
-        <div className="bg-black rounded-full flex items-center justify-around py-3 px-2" style={{boxShadow: '0 4px 24px rgba(0,0,0,0.3)'}}>
+        <div className="bg-white rounded-full flex items-center justify-around py-3 px-2" style={{boxShadow: '0 2px 16px rgba(0,0,0,0.12)'}}>
           {tabs.map((tab, i) => (
-            <button key={tab} className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all ${i === 0 ? 'bg-white text-black' : 'text-gray-400'}`}>
+            <button key={tab} className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all ${i === 0 ? 'bg-black text-white' : 'text-gray-500 hover:text-black'}`}>
               {tab}
             </button>
           ))}

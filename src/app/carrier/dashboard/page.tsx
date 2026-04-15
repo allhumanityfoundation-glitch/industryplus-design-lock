@@ -1,10 +1,10 @@
 'use client';
 
 const stats = [
-  { label: 'Active Drivers', value: '47', change: '+3' },
-  { label: 'Pending', value: '12', change: '5 urgent' },
-  { label: 'Open Matches', value: '23', change: '+8' },
-  { label: 'DQF Rate', value: '89%', change: '↑7%' },
+  { label: 'Active Drivers', value: '47', change: '+3 this week' },
+  { label: 'Pending', value: '12', change: '5 need action' },
+  { label: 'Open Matches', value: '23', change: '+8 this month' },
+  { label: 'DQF Rate', value: '89%', change: '↑ from 82%' },
 ];
 
 const pipeline = [
@@ -17,36 +17,35 @@ const pipeline = [
 ];
 
 const activity = [
-  { action: 'Drug screen cleared', driver: 'James Rodriguez', time: '2h' },
-  { action: 'MVR pulled', driver: 'Maria Santos', time: '4h' },
-  { action: 'FCRA pre-adverse sent', driver: 'Unknown', time: '1d' },
-  { action: 'DQF completed', driver: 'Sarah Williams', time: '1d' },
-  { action: 'New driver added', driver: 'Robert Kim', time: '2d' },
-];
-
-const sidebarNav = [
-  { label: 'Dashboard', active: true },
-  { label: 'Drivers', active: false },
-  { label: 'Compliance', active: false, badge: '3' },
-  { label: 'Team', active: false },
-  { label: 'Billing', active: false },
+  { action: 'Drug screen cleared', driver: 'James Rodriguez', time: '2h ago' },
+  { action: 'MVR pulled', driver: 'Maria Santos', time: '4h ago' },
+  { action: 'FCRA pre-adverse sent', driver: 'Unknown', time: '1d ago' },
+  { action: 'DQF completed', driver: 'Sarah Williams', time: '1d ago' },
+  { action: 'New driver added', driver: 'Robert Kim', time: '2d ago' },
 ];
 
 export default function CarrierDashboard() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 bottom-0 w-56 bg-black flex flex-col z-50">
+      <aside className="fixed left-0 top-0 bottom-0 w-60 bg-black flex flex-col z-50">
         <div className="h-14 flex items-center gap-2 px-5 border-b border-white/10">
-          <div className="w-7 h-7 rounded-lg gradient-bg flex items-center justify-center">
-            <span className="text-black font-bold text-xs">IP</span>
+          <div className="w-6 h-6 rounded gradient-bg flex items-center justify-center">
+            <span className="text-black font-bold text-[10px]">IP</span>
           </div>
           <span className="text-white font-bold text-sm">IndustryPlus</span>
         </div>
 
         <nav className="flex-1 py-4 px-3">
-          <p className="text-[10px] text-gray-600 uppercase tracking-widest font-medium px-3 mb-2">Swift Transport</p>
-          {sidebarNav.map(({ label, active, badge }) => (
+          <p className="text-[10px] text-gray-600 uppercase tracking-widest font-bold px-3 mb-2">Swift Transport</p>
+          {[
+            { label: 'Dashboard', active: true },
+            { label: 'Drivers', active: false },
+            { label: 'Compliance', active: false, badge: '3' },
+            { label: 'Team', active: false },
+            { label: 'Billing', active: false },
+            { label: 'Settings', active: false },
+          ].map(({ label, active, badge }) => (
             <button
               key={label}
               className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors mb-0.5 ${
@@ -75,7 +74,7 @@ export default function CarrierDashboard() {
       </aside>
 
       {/* Main */}
-      <main className="flex-1 ml-56">
+      <main className="flex-1 ml-60">
         {/* Header */}
         <header className="h-14 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-40">
           <h2 className="font-bold text-sm">Dashboard</h2>
@@ -86,31 +85,31 @@ export default function CarrierDashboard() {
               </svg>
               Search
             </button>
-            <button className="w-8 h-8 rounded-full bg-[--ip-chip-gray] flex items-center justify-center relative">
+            <button className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center relative">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
               </svg>
-              <div className="absolute top-1 right-1 w-2 h-2 bg-[--ip-orange] rounded-full" />
+              <div className="absolute top-1 right-1 w-2 h-2 bg-amber-500 rounded-full" />
             </button>
           </div>
         </header>
 
         <div className="p-8">
-          {/* Stats — Uber compact row */}
+          {/* Stats */}
           <div className="grid grid-cols-4 gap-4 mb-8">
             {stats.map((s, i) => (
               <div key={i} className="bg-white rounded-lg p-5" style={{boxShadow: 'var(--ip-shadow-card)'}}>
-                <p className="text-[10px] text-[--ip-muted] uppercase tracking-wider font-bold mb-1">{s.label}</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider font-bold mb-1">{s.label}</p>
                 <div className="flex items-baseline gap-2">
                   <p className="text-3xl font-bold">{s.value}</p>
-                  <span className="text-xs font-medium text-[--ip-body-gray]">{s.change}</span>
+                  <span className="text-xs font-medium text-gray-500">{s.change}</span>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="grid grid-cols-5 gap-6">
-            {/* Pipeline table */}
+            {/* Pipeline */}
             <div className="col-span-3">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-bold text-sm">Driver Pipeline</h3>
@@ -124,10 +123,10 @@ export default function CarrierDashboard() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-100">
-                      <th className="text-left text-[10px] font-bold text-[--ip-muted] uppercase tracking-wider px-5 py-2.5">Driver</th>
-                      <th className="text-left text-[10px] font-bold text-[--ip-muted] uppercase tracking-wider px-5 py-2.5">Status</th>
-                      <th className="text-left text-[10px] font-bold text-[--ip-muted] uppercase tracking-wider px-5 py-2.5">Progress</th>
-                      <th className="text-right text-[10px] font-bold text-[--ip-muted] uppercase tracking-wider px-5 py-2.5">Days</th>
+                      <th className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-2.5">Driver</th>
+                      <th className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-2.5">Status</th>
+                      <th className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-2.5">Progress</th>
+                      <th className="text-right text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-2.5">Days</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -135,31 +134,25 @@ export default function CarrierDashboard() {
                       <tr key={i} className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
                         <td className="px-5 py-3">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-[--ip-chip-gray] flex items-center justify-center">
-                              <span className="font-bold text-[11px] text-[--ip-body-gray]">{p.initials}</span>
+                            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                              <span className="font-bold text-[11px] text-gray-500">{p.initials}</span>
                             </div>
                             <span className="text-sm font-medium">{p.name}</span>
                           </div>
                         </td>
                         <td className="px-5 py-3">
-                          <span className={`chip text-[11px] !py-0.5 !px-2.5 ${p.urgent ? 'bg-[--ip-orange]/10 text-[--ip-orange]' : ''}`}>{p.status}</span>
+                          <span className={`chip text-[11px] !py-0.5 !px-2.5 ${p.urgent ? '!bg-amber-50 !text-amber-700' : ''}`}>{p.status}</span>
                         </td>
                         <td className="px-5 py-3">
                           <div className="flex items-center gap-2">
                             <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                              <div
-                                className="h-full rounded-full transition-all"
-                                style={{
-                                  width: `${p.pct}%`,
-                                  background: p.pct === 100 ? '#22C55E' : 'var(--ip-gradient)'
-                                }}
-                              />
+                              <div className="h-full rounded-full" style={{width: `${p.pct}%`, background: p.pct === 100 ? '#22C55E' : 'var(--ip-gradient)'}} />
                             </div>
-                            <span className="text-[11px] text-[--ip-muted] font-medium">{p.pct}%</span>
+                            <span className="text-[11px] text-gray-400 font-medium">{p.pct}%</span>
                           </div>
                         </td>
                         <td className="px-5 py-3 text-right">
-                          <span className={`text-sm font-medium ${p.urgent ? 'text-[--ip-orange]' : 'text-[--ip-muted]'}`}>
+                          <span className={`text-sm font-medium ${p.urgent ? 'text-amber-500' : 'text-gray-400'}`}>
                             {p.days === 0 ? '—' : `${p.days}d`}
                           </span>
                         </td>
@@ -180,15 +173,15 @@ export default function CarrierDashboard() {
                     <div key={i} className={`px-5 py-3 ${i < activity.length - 1 ? 'border-b border-gray-50' : ''}`}>
                       <p className="text-sm font-medium">{a.action}</p>
                       <div className="flex items-center justify-between mt-0.5">
-                        <p className="text-xs text-[--ip-body-gray]">{a.driver}</p>
-                        <p className="text-[11px] text-[--ip-muted]">{a.time} ago</p>
+                        <p className="text-xs text-gray-500">{a.driver}</p>
+                        <p className="text-[11px] text-gray-400">{a.time}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Compliance alert */}
+              {/* Compliance alert — Uber style dark card */}
               <div className="bg-black rounded-2xl p-5 text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-7 h-7 rounded-full gradient-bg flex items-center justify-center">
@@ -199,7 +192,7 @@ export default function CarrierDashboard() {
                   <span className="font-bold text-sm">3 actions required</span>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed">FCRA pre-adverse deadline for James Rodriguez in 5 days.</p>
-                <button className="pill-btn pill-btn-gradient text-xs mt-3 !py-2 !px-4">Review compliance</button>
+                <button className="btn-accent text-xs mt-3 !py-2 !px-4">Review compliance</button>
               </div>
 
               {/* Quick actions */}

@@ -1,32 +1,30 @@
 :root {
-  /* ── Core (Uber-style pure B&W) ── */
+  /* ── Uber exact: pure B&W ── */
   --ip-black: #000000;
   --ip-white: #FFFFFF;
 
-  /* ── Accent (Kevin's gradient) ── */
+  /* ── Uber neutrals ── */
+  --ip-gray-50: #F6F6F6;
+  --ip-gray-100: #EEEEEE;
+  --ip-gray-200: #E2E2E2;
+  --ip-gray-300: #CCCCCC;
+  --ip-gray-400: #AFAFAF;
+  --ip-gray-500: #757575;
+  --ip-gray-600: #545454;
+  --ip-gray-700: #333333;
+
+  /* ── Accent (your brand color) ── */
   --ip-yellow: #FACC15;
   --ip-orange: #F97316;
   --ip-gradient: linear-gradient(135deg, #FACC15 0%, #F97316 100%);
-  --ip-gradient-hover: linear-gradient(135deg, #FDE047 0%, #FB923C 100%);
 
-  /* ── Uber-style neutrals ── */
-  --ip-body-gray: #4B4B4B;
-  --ip-muted: #AFAFAF;
-  --ip-chip-gray: #EFEFEF;
-  --ip-hover: #E2E2E2;
-  --ip-hover-light: #F3F3F3;
+  /* ── Uber shadows ── */
+  --ip-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --ip-shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --ip-shadow-button: 0 2px 4px rgba(0, 0, 0, 0.06);
 
-  /* ── Typography (DM Sans = closest to UberMove) ── */
-  --ip-font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-
-  /* ── Uber-style shadows ── */
-  --ip-shadow-card: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --ip-shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.16);
-  --ip-shadow-pressed: inset 0 0 0 999px rgba(0, 0, 0, 0.08);
-  --ip-shadow-float: 0 2px 8px rgba(0, 0, 0, 0.16);
-
-  /* ── Radius (Uber = pill everything) ── */
+  /* ── Uber radius ── */
   --ip-pill: 999px;
-  --ip-card: 8px;
-  --ip-card-lg: 12px;
+  --ip-radius: 8px;
+  --ip-radius-lg: 12px;
 }

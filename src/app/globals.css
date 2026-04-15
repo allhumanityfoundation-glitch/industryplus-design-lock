@@ -4,126 +4,126 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; box-sizing: border-box; }
 
 body {
-  font-family: var(--ip-font);
-  background: var(--ip-white);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   color: var(--ip-black);
+  background: var(--ip-white);
 }
 
-/* ── Uber pill button ── */
-.pill-btn {
-  border-radius: var(--ip-pill);
-  font-weight: 500;
+/* ═══ UBER BUTTON SYSTEM ═══ */
+
+/* Primary: solid black, white text, pill */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ip-black); color: var(--ip-white);
+  padding: 12px 20px; border-radius: var(--ip-pill);
+  font-size: 16px; font-weight: 500; line-height: 1;
+  cursor: pointer; border: none; text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: #1a1a1a; }
+
+/* Secondary: white bg, black border, pill */
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ip-white); color: var(--ip-black);
+  padding: 12px 20px; border-radius: var(--ip-pill);
+  font-size: 16px; font-weight: 500; line-height: 1;
+  cursor: pointer; border: 1px solid var(--ip-black); text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: var(--ip-gray-100); }
+
+/* Accent: gradient pill */
+.btn-accent {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ip-gradient); color: var(--ip-black);
+  padding: 12px 20px; border-radius: var(--ip-pill);
+  font-size: 16px; font-weight: 600; line-height: 1;
+  cursor: pointer; border: none; text-decoration: none;
   transition: all 0.15s;
 }
+.btn-accent:hover { box-shadow: 0 4px 12px rgba(249,115,22,0.3); transform: translateY(-1px); }
 
-.pill-btn-black {
-  background: var(--ip-black);
-  color: var(--ip-white);
-  padding: 10px 20px;
+/* Ghost: text-only link */
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--ip-black); font-size: 16px; font-weight: 500;
+  text-decoration: underline; text-underline-offset: 4px;
+  cursor: pointer; border: none; background: none;
+  transition: opacity 0.15s;
 }
-.pill-btn-black:hover {
-  background: #1a1a1a;
-  transform: translateY(1px);
-}
+.btn-ghost:hover { opacity: 0.6; }
 
-.pill-btn-white {
-  background: var(--ip-white);
-  color: var(--ip-black);
-  padding: 10px 20px;
-  border: 1px solid var(--ip-black);
-}
-.pill-btn-white:hover {
-  background: var(--ip-hover);
-}
-
-.pill-btn-gradient {
-  background: var(--ip-gradient);
-  color: var(--ip-black);
-  padding: 10px 20px;
-  font-weight: 600;
-}
-.pill-btn-gradient:hover {
-  background: var(--ip-gradient-hover);
-  box-shadow: 0 4px 12px rgba(249,115,22,0.3);
-  transform: translateY(-1px);
-}
-
-/* ── Uber chip ── */
-.chip {
-  border-radius: var(--ip-pill);
-  background: var(--ip-chip-gray);
-  color: var(--ip-black);
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.chip:hover {
-  background: var(--ip-hover);
-}
-.chip.active {
-  background: var(--ip-black);
-  color: var(--ip-white);
-}
-
-/* ── Uber card ── */
-.uber-card {
-  border-radius: var(--ip-card);
-  box-shadow: var(--ip-shadow-card);
-  background: var(--ip-white);
-}
-
-.uber-card-lg {
-  border-radius: var(--ip-card-lg);
-  box-shadow: var(--ip-shadow-card);
-  background: var(--ip-white);
-}
-
-/* ── Uber input ── */
+/* ═══ UBER INPUT ═══ */
 .uber-input {
   width: 100%;
-  border: 1px solid var(--ip-black);
-  border-radius: var(--ip-card);
-  padding: 12px 16px;
-  font-size: 16px;
-  font-family: var(--ip-font);
+  background: var(--ip-gray-50);
+  border: 1px solid var(--ip-gray-200);
+  border-radius: var(--ip-radius);
+  padding: 14px 16px;
+  font-size: 16px; font-family: inherit;
   color: var(--ip-black);
-  background: var(--ip-white);
-  outline: none;
-  transition: box-shadow 0.15s;
+  outline: none; transition: border-color 0.15s, box-shadow 0.15s;
 }
 .uber-input:focus {
-  box-shadow: 0 0 0 2px var(--ip-black);
+  border-color: var(--ip-black);
+  box-shadow: 0 0 0 1px var(--ip-black);
 }
-.uber-input::placeholder {
-  color: var(--ip-muted);
+.uber-input::placeholder { color: var(--ip-gray-400); }
+
+/* ═══ UBER CARD ═══ */
+.uber-card {
+  background: var(--ip-white);
+  border-radius: var(--ip-radius-lg);
+  box-shadow: var(--ip-shadow-card);
+  overflow: hidden;
 }
 
-/* ── Gradient accent ── */
-.gradient-bar {
-  height: 3px;
-  background: var(--ip-gradient);
+.uber-card-flat {
+  background: var(--ip-gray-50);
+  border-radius: var(--ip-radius-lg);
+  overflow: hidden;
 }
 
-.gradient-bg {
-  background: var(--ip-gradient);
+/* ═══ UBER CHIP ═══ */
+.chip {
+  display: inline-flex; align-items: center;
+  background: var(--ip-gray-100); color: var(--ip-black);
+  padding: 10px 16px; border-radius: var(--ip-pill);
+  font-size: 14px; font-weight: 500;
+  cursor: pointer; border: none; transition: background 0.15s;
+  white-space: nowrap;
+}
+.chip:hover { background: var(--ip-gray-200); }
+.chip.active { background: var(--ip-black); color: var(--ip-white); }
+
+/* ═══ UBER NAV ═══ */
+.uber-nav {
+  background: var(--ip-white);
+  border-bottom: 1px solid var(--ip-gray-100);
+  position: sticky; top: 0; z-index: 50;
 }
 
-/* ── Dark section (Uber footer style) ── */
-.dark-section {
+.uber-nav-dark {
   background: var(--ip-black);
-  color: var(--ip-white);
+  position: sticky; top: 0; z-index: 50;
 }
 
-/* ── Safe area for mobile ── */
+/* ═══ SECTION PATTERNS ═══ */
+.section-white { background: var(--ip-white); padding: 80px 0; }
+.section-gray { background: var(--ip-gray-50); padding: 80px 0; }
+.section-black { background: var(--ip-black); color: var(--ip-white); padding: 80px 0; }
+
+/* ═══ GRADIENT ACCENT BAR ═══ */
+.gradient-bar { height: 3px; background: var(--ip-gradient); width: 100%; }
+
+/* ═══ GRADIENT BG ═══ */
+.gradient-bg { background: var(--ip-gradient); }
+
+/* ═══ SAFE AREA ═══ */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }
